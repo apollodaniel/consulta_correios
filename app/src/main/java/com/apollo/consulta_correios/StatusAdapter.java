@@ -15,18 +15,18 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.viewHolder>{
+public class StatusAdapter extends RecyclerView.Adapter<StatusAdapter.viewHolder>{
 
     List<Evento> eventos;
 
-    public CustomAdapter(List<Evento> eventos) {
+    public StatusAdapter(List<Evento> eventos) {
         this.eventos = eventos;
     }
 
     @NonNull
     @Override
     public viewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.custom_adapter, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.status_adapter, parent, false);
         return new viewHolder(view);
     }
 

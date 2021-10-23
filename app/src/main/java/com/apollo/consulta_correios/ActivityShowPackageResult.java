@@ -1,6 +1,5 @@
 package com.apollo.consulta_correios;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -16,11 +15,6 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ActivityShowPackageResult extends AppCompatActivity {
 
@@ -48,7 +42,7 @@ public class ActivityShowPackageResult extends AppCompatActivity {
     }
 
     private void configureRecyclerView() {
-        CustomAdapter adapter = new CustomAdapter(eventos_list);
+        StatusAdapter adapter = new StatusAdapter(eventos_list);
         LinearLayoutManager layoutManager = new LinearLayoutManager(ActivityShowPackageResult.this);
 
         rv_mostra_status.setLayoutManager(layoutManager);

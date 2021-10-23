@@ -17,8 +17,11 @@ public class ActivityInicio extends AppCompatActivity {
     Button btnBuscar;
     @BindView(R.id.activity_inicio_edt_codigo_produto)
     EditText edtCodigoProduto;
+    @BindView(R.id.activity_inicio_btn_historico)
+    Button btnHistorico;
 
-
+    private final String SHARED_PREFS = "prefs";
+    private final String PACKAGE_QUERY_KEY = "package";
 
     private String codigo_produto;
 
@@ -28,6 +31,13 @@ public class ActivityInicio extends AppCompatActivity {
         setContentView(R.layout.activity_inicio);
 
         ButterKnife.bind(ActivityInicio.this);
+
+        SharedPreferences sh = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
+        String package_codes = sh.getString(PACKAGE_QUERY_KEY, "");
+        if(package_codes.isEmpty()){
+            btnHistorico.setEnabled(false);
+        }
+
         btnBuscar.setOnClickListener(View -> {
             codigo_produto = edtCodigoProduto.getText().toString();
 
@@ -36,6 +46,7 @@ public class ActivityInicio extends AppCompatActivity {
             startActivity(intent);
             finish();
         });
+
     }
 
 

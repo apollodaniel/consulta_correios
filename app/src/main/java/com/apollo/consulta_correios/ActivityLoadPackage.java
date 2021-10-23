@@ -80,7 +80,7 @@ public class ActivityLoadPackage extends AppCompatActivity {
         String package_codes = sh.getString(PACKAGE_QUERY_KEY, "");
 
         ArrayList<String> package_codes_array = new ArrayList<String>(
-            Arrays.asList(package_codes.split("|")));
+            Arrays.asList(package_codes.split("\\|")));
 
         if (package_codes.equals("")){
             package_codes = package_code;
