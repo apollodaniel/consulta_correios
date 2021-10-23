@@ -1,6 +1,7 @@
 package com.apollo.consulta_correios;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
@@ -8,8 +9,12 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.Button;
 
+import com.apollo.consulta_correios.models.PackageTemplate;
+import com.google.gson.Gson;
+
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 import butterknife.BindView;
 
@@ -37,7 +42,18 @@ public class activity_history extends AppCompatActivity {
             finish();
         });
 
-        ArrayList<String> package_codes_array = new ArrayList<String>(Arrays.asList(package_codes.split("\\|")));
-
+        ArrayList<String> packages_string = new ArrayList<String>(Arrays.asList(package_codes.split("\\|")));
+        List<PackageTemplate> packages_class = new ArrayList<>();
+        for(String i:packages_string){
+            packages_class.add(new Gson().fromJson(i,PackageTemplate.class));
+        }
     }
+    private void configureRecyclerView(List<PackageTemplate> j){
+        HistoryAdapter adapter = new HistoryAdapter(j);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+
+        rvShowHistory.setLayoutManager(layoutManager);
+        rvShowHistory.setAdapter(adapter);
+    }
+
 }

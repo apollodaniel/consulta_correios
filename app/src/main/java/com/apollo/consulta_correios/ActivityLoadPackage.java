@@ -8,10 +8,15 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import com.apollo.consulta_correios.models.CorreiosEncomenda;
+import com.apollo.consulta_correios.models.PackageTemplate;
 import com.google.gson.Gson;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Locale;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -79,18 +84,36 @@ public class ActivityLoadPackage extends AppCompatActivity {
         SharedPreferences sh = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
         String package_codes = sh.getString(PACKAGE_QUERY_KEY, "");
 
-        ArrayList<String> package_codes_array = new ArrayList<String>(
+        ArrayList<String> packages_string = new ArrayList<String>(
             Arrays.asList(package_codes.split("\\|")));
 
-        if (package_codes.equals("")){
-            package_codes = package_code;
-        }else if(!package_codes_array.contains(package_codes)){
-            StringBuilder sb = new StringBuilder();
-            sb.append(package_codes);
-            sb.append("|" + package_code);
+        ArrayList<PackageTemplate> packages =  new ArrayList<>();
 
+        for(String package_ : packages_string){
+            packages.add(new Gson().fromJson(package_, PackageTemplate.class));
+        }
+
+        if (package_codes.equals("")){
+            Date c = Calendar.getInstance().getTime();
+            SimpleDateFormat df = new SimpleDateFormat("dd/MMM/yyyy", Locale.getDefault());
+            String formattedDate = df.format(c);
+
+            package_codes = new Gson().toJson(new PackageTemplate(package_code, formattedDate)).toString();
+
+        }else if(!packages.contains(package_codes)){
+            Date c = Calendar.getInstance().getTime();
+            SimpleDateFormat df = new SimpleDateFormat("dd/MMM/yyyy", Locale.getDefault());
+            String formattedDate = df.format(c);
+            PackageTemplate packageTemplate = new PackageTemplate(package_code, formattedDate);
+            packages.add(packageTemplate);
+
+            StringBuilder sb = new StringBuilder();
+            for(PackageTemplate i:packages){
+                sb.append(String.format("|%s",new Gson().toJson(i)));
+            }
             package_codes = sb.toString();
         }
+
         sh.edit().putString(PACKAGE_QUERY_KEY, package_codes).apply();
     }
 }
