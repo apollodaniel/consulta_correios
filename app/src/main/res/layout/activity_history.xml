@@ -11,8 +11,9 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/activity_history_rv_show_history"
         android:layout_width="match_parent"
-        android:layout_weight="12"
-        android:layout_height="0dp"/>
+        android:layout_height="0dp"
+        android:layout_weight="9"
+        />
     <Button
         android:id="@+id/activity_history_btn_voltar"
         android:layout_width="match_parent"

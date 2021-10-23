@@ -46,6 +46,11 @@ public class ActivityInicio extends AppCompatActivity {
             startActivity(intent);
             finish();
         });
+        btnHistorico.setOnClickListener(View -> {
+            Intent intent = new Intent(ActivityInicio.this, activity_history.class);
+            startActivity(intent);
+            finish();
+        });
 
     }
 

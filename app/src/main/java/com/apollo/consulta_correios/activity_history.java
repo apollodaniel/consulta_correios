@@ -17,6 +17,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
 
 public class activity_history extends AppCompatActivity {
 
@@ -33,6 +34,8 @@ public class activity_history extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_history);
 
+        ButterKnife.bind(activity_history.this);
+
         SharedPreferences sh = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
         String package_codes = sh.getString(PACKAGE_QUERY_KEY, "");
 
@@ -47,6 +50,7 @@ public class activity_history extends AppCompatActivity {
         for(String i:packages_string){
             packages_class.add(new Gson().fromJson(i,PackageTemplate.class));
         }
+        configureRecyclerView(packages_class);
     }
     private void configureRecyclerView(List<PackageTemplate> j){
         HistoryAdapter adapter = new HistoryAdapter(j);
