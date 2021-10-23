@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Consulta correios</string>
+    <string name="product_doesnt_exists_error">Product doesn\'t exists :P</string>
+</resources>
