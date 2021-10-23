@@ -21,7 +21,7 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class MainActivity extends AppCompatActivity {
+public class ActivityShowPackageResult extends AppCompatActivity {
 
     @BindView(R.id.txt_codigo_encomenda)
     TextView txt_codigo_encomenda;
@@ -36,15 +36,15 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_show_package_result);
 
-        ButterKnife.bind(MainActivity.this);
+        ButterKnife.bind(ActivityShowPackageResult.this);
         configureRetrofit();
     }
 
     private void configureRecyclerView() {
         CustomAdapter adapter = new CustomAdapter(eventos_list);
-        LinearLayoutManager layoutManager = new LinearLayoutManager(MainActivity.this);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(ActivityShowPackageResult.this);
 
         rv_mostra_status.setLayoutManager(layoutManager);
         rv_mostra_status.setAdapter(adapter);
