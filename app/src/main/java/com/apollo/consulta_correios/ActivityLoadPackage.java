@@ -49,7 +49,7 @@ public class ActivityLoadPackage extends AppCompatActivity {
                     CorreiosEncomenda encomenda = response.body();
                     if (encomenda != null) {
                         Gson gson = new Gson();
-                        String json_resultado = gson.toJson(CorreiosEncomenda.class);
+                        String json_resultado = gson.toJson(encomenda);
                         Intent intent = new Intent(ActivityLoadPackage.this, ActivityShowPackageResult.class);
                         intent.putExtra("json_resultado", json_resultado);
                         startActivity(intent);

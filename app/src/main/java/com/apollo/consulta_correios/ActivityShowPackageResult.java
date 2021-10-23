@@ -44,6 +44,7 @@ public class ActivityShowPackageResult extends AppCompatActivity {
 
         txt_codigo_encomenda.setText(encomenda.codigo);
         eventos_list = encomenda.eventos;
+        configureRecyclerView();
     }
 
     private void configureRecyclerView() {
