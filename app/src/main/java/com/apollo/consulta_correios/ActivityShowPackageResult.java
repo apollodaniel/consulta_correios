@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.apollo.consulta_correios.models.CorreiosEncomenda;
 import com.apollo.consulta_correios.models.Evento;
+import com.google.gson.Gson;
 
 import java.util.List;
 
@@ -28,9 +29,6 @@ public class ActivityShowPackageResult extends AppCompatActivity {
     @BindView(R.id.rv_mostra_status)
     RecyclerView rv_mostra_status;
 
-    private final String user = "teste";
-    private final String token = "1abcd00b2731640e886fb41a8a9671ad1434c599dbaa0a0de9a5aa619f29a83f";
-
     List<Evento> eventos_list;
 
     @Override
@@ -39,7 +37,13 @@ public class ActivityShowPackageResult extends AppCompatActivity {
         setContentView(R.layout.activity_show_package_result);
 
         ButterKnife.bind(ActivityShowPackageResult.this);
-        configureRetrofit();
+
+        Gson gson = new Gson();
+        String json_resultado = getIntent().getStringExtra("json_resultado");
+        CorreiosEncomenda encomenda = gson.fromJson(json_resultado, CorreiosEncomenda.class);
+
+        txt_codigo_encomenda.setText(encomenda.codigo);
+        eventos_list = encomenda.eventos;
     }
 
     private void configureRecyclerView() {
@@ -50,38 +54,5 @@ public class ActivityShowPackageResult extends AppCompatActivity {
         rv_mostra_status.setAdapter(adapter);
     }
 
-    private void configureRetrofit(){
 
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(CorreiosService.BASE_URL)
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-
-        CorreiosService service = retrofit.create(CorreiosService.class);
-        Call<CorreiosEncomenda> correiosEncomenda = service.showProduct(user, token ,"QH534792157BR");
-        correiosEncomenda.enqueue(new Callback<CorreiosEncomenda>() {
-            @Override
-            public void onResponse(@NonNull Call<CorreiosEncomenda> call, @NonNull Response<CorreiosEncomenda> response) {
-                if(response.code() == 401){
-                    // unautorized error = not found product code
-                    txt_codigo_encomenda.setText(R.string.product_doesnt_exists_error);
-                }else if(response.code() == 200){
-                    // sucess
-                    CorreiosEncomenda encomenda = response.body();
-                    if (encomenda != null) {
-                        txt_codigo_encomenda.setText(encomenda.codigo);
-                        eventos_list = encomenda.eventos;
-                    }else{
-                        txt_codigo_encomenda.setText(R.string.product_doesnt_exists_error);
-                    }
-                    configureRecyclerView();
-                }
-            }
-
-            @Override
-            public void onFailure(Call<CorreiosEncomenda> call, Throwable t) {
-                txt_codigo_encomenda.setText(String.format("Error: %s", t.toString()));
-            }
-        });
-    }
 }
