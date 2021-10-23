@@ -3,6 +3,7 @@ package com.apollo.consulta_correios;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
@@ -17,6 +18,10 @@ public class ActivityInicio extends AppCompatActivity {
     @BindView(R.id.activity_inicio_edt_codigo_produto)
     EditText edtCodigoProduto;
 
+
+
+    private String codigo_produto;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,7 +29,7 @@ public class ActivityInicio extends AppCompatActivity {
 
         ButterKnife.bind(ActivityInicio.this);
         btnBuscar.setOnClickListener(View -> {
-            String codigo_produto = edtCodigoProduto.getText().toString();
+            codigo_produto = edtCodigoProduto.getText().toString();
 
             Intent intent = new Intent(ActivityInicio.this, ActivityLoadPackage.class);
             intent.putExtra("package_code", codigo_produto);
@@ -32,4 +37,6 @@ public class ActivityInicio extends AppCompatActivity {
             finish();
         });
     }
+
+
 }

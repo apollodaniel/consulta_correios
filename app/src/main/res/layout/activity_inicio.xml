@@ -26,6 +26,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Buscar"/>
+    <Button
+        android:id="@+id/activity_inicio_btn_historico"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Histórico de buscas"/>
+
 
 
 </LinearLayout>

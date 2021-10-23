@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.HelloWorld">
         <activity
+            android:name=".activity_history"
+            android:exported="false" />
+        <activity
             android:name=".ActivityLoadPackage"
             android:exported="false" />
         <activity
