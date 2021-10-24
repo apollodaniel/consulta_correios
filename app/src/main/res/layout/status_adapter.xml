@@ -13,46 +13,45 @@
         android:orientation="vertical"
         android:background="@drawable/status_item_round"
         android:padding="16dp">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="horizontal">
-
-
+            android:orientation="vertical">
             <TextView
                 android:id="@+id/custom_adapter_txt_status"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
                 android:layout_weight="1"
+                android:textColor="@color/black"
                 android:text="Status: Lorem ipsum"
                 tools:ignore="HardcodedText" />
 
             <TextView
                 android:id="@+id/custom_adapter_txt_local"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
                 android:layout_weight="1"
-                android:text="Local: Dombinha"
+                android:layout_marginTop="2dp"
+                android:textColor="@color/black"
+                android:text="Local: SP"
                 tools:ignore="HardcodedText" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="10dp"
-            android:orientation="horizontal">
             <TextView
                 android:id="@+id/custom_adapter_txt_data"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
                 android:layout_weight="1"
+                android:layout_marginTop="2dp"
+                android:textColor="@color/black"
                 android:text="Data: 10/10/2000"
                 tools:ignore="HardcodedText" />
             <TextView
                 android:id="@+id/custom_adapter_txt_hora"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
                 android:layout_weight="1"
+                android:layout_marginTop="2dp"
+                android:textColor="@color/black"
                 android:text="Hora: 22:22:2222"
                 tools:ignore="HardcodedText" />
         </LinearLayout>
