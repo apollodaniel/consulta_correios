@@ -50,10 +50,17 @@ public class ActivityInicio extends AppCompatActivity {
         btnBuscar.setOnClickListener(View -> {
             codigo_produto = edtCodigoProduto.getText().toString();
 
-            Intent intent = new Intent(ActivityInicio.this, ActivityLoadPackage.class);
-            intent.putExtra("package_code", codigo_produto);
-            startActivity(intent);
-            finish();
+            if(codigo_produto.isEmpty()){
+                edtCodigoProduto.setError("Dígite um código antes de fazer a pesquisa!");
+            }else if(codigo_produto.length() < 13){
+                edtCodigoProduto.setError("Dígite um código válido!");
+            }
+            else{
+                Intent intent = new Intent(ActivityInicio.this, ActivityLoadPackage.class);
+                intent.putExtra("package_code", codigo_produto);
+                startActivity(intent);
+                finish();
+            }
         });
         btnHistorico.setOnClickListener(View -> {
             Intent intent = new Intent(ActivityInicio.this, ActivityHistory.class);
