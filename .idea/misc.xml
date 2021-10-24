@@ -6,9 +6,12 @@
         <entry key="..\:/Users/apollo/AndroidStudioProjects/ConsultaCorreios/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.3098958333333333" />
         <entry key="..\:/Users/apollo/AndroidStudioProjects/ConsultaCorreios/app/src/main/res/drawable/button_round.xml" value="0.3098958333333333" />
         <entry key="..\:/Users/apollo/AndroidStudioProjects/ConsultaCorreios/app/src/main/res/drawable/history_item_round.xml" value="0.3098958333333333" />
+        <entry key="..\:/Users/apollo/AndroidStudioProjects/ConsultaCorreios/app/src/main/res/drawable/ic_account.xml" value="0.3098958333333333" />
         <entry key="..\:/Users/apollo/AndroidStudioProjects/ConsultaCorreios/app/src/main/res/drawable/ic_back_arrow.xml" value="0.3098958333333333" />
+        <entry key="..\:/Users/apollo/AndroidStudioProjects/ConsultaCorreios/app/src/main/res/drawable/ic_baseline_copyright_24.xml" value="0.3098958333333333" />
         <entry key="..\:/Users/apollo/AndroidStudioProjects/ConsultaCorreios/app/src/main/res/drawable/ic_calendary.xml" value="0.3098958333333333" />
         <entry key="..\:/Users/apollo/AndroidStudioProjects/ConsultaCorreios/app/src/main/res/drawable/ic_code.xml" value="0.3098958333333333" />
+        <entry key="..\:/Users/apollo/AndroidStudioProjects/ConsultaCorreios/app/src/main/res/drawable/ic_copyright.xml" value="0.3098958333333333" />
         <entry key="..\:/Users/apollo/AndroidStudioProjects/ConsultaCorreios/app/src/main/res/drawable/ic_history.xml" value="0.3098958333333333" />
         <entry key="..\:/Users/apollo/AndroidStudioProjects/ConsultaCorreios/app/src/main/res/drawable/ic_launcher_background.xml" value="0.3098958333333333" />
         <entry key="..\:/Users/apollo/AndroidStudioProjects/ConsultaCorreios/app/src/main/res/drawable/ic_location_city.xml" value="0.3098958333333333" />
@@ -22,9 +25,9 @@
         <entry key="..\:/Users/apollo/AndroidStudioProjects/ConsultaCorreios/app/src/main/res/drawable/input_round.xml" value="0.3098958333333333" />
         <entry key="..\:/Users/apollo/AndroidStudioProjects/ConsultaCorreios/app/src/main/res/drawable/status_item_round.xml" value="0.3098958333333333" />
         <entry key="..\:/Users/apollo/AndroidStudioProjects/ConsultaCorreios/app/src/main/res/layout/activity_history.xml" value="0.29375" />
-        <entry key="..\:/Users/apollo/AndroidStudioProjects/ConsultaCorreios/app/src/main/res/layout/activity_inicio.xml" value="0.22" />
+        <entry key="..\:/Users/apollo/AndroidStudioProjects/ConsultaCorreios/app/src/main/res/layout/activity_inicio.xml" value="0.33" />
         <entry key="..\:/Users/apollo/AndroidStudioProjects/ConsultaCorreios/app/src/main/res/layout/activity_load_package.xml" value="0.33" />
-        <entry key="..\:/Users/apollo/AndroidStudioProjects/ConsultaCorreios/app/src/main/res/layout/activity_show_package_result.xml" value="0.5" />
+        <entry key="..\:/Users/apollo/AndroidStudioProjects/ConsultaCorreios/app/src/main/res/layout/activity_show_package_result.xml" value="0.33" />
         <entry key="..\:/Users/apollo/AndroidStudioProjects/ConsultaCorreios/app/src/main/res/layout/custom_adapter.xml" value="0.29375" />
         <entry key="..\:/Users/apollo/AndroidStudioProjects/ConsultaCorreios/app/src/main/res/layout/history_adapter.xml" value="0.30572916666666666" />
         <entry key="..\:/Users/apollo/AndroidStudioProjects/ConsultaCorreios/app/src/main/res/layout/input_round.xml" value="0.29375" />

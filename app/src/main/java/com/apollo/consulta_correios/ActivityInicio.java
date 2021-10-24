@@ -5,10 +5,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -23,6 +25,8 @@ public class ActivityInicio extends AppCompatActivity {
     Button btnHistorico;
     @BindView(R.id.activity_inicio_imgbg)
     ImageView imgBg;
+    @BindView(R.id.txtCopyrightNotice)
+    TextView txtCopyrightNotice;
 
     private final String SHARED_PREFS = "prefs";
     private final String PACKAGE_QUERY_KEY = "package";
@@ -39,7 +43,12 @@ public class ActivityInicio extends AppCompatActivity {
 
         Drawable drawable = getDrawable(R.mipmap.hands_bg);
         imgBg.setImageDrawable(drawable);
-        imgBg.setAlpha(0.8f);
+
+
+        txtCopyrightNotice.setOnClickListener(View -> {
+            Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/apollodaniel"));
+            startActivity(browserIntent);
+        });
 
         SharedPreferences sh = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
         String package_codes = sh.getString(PACKAGE_QUERY_KEY, "");

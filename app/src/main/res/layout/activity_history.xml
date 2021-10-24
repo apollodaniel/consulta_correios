@@ -13,7 +13,7 @@
         android:layout_height="match_parent"
         android:src="@mipmap/post_car_bg"
         android:scaleType="centerCrop"
-        android:alpha="0.2"/>
+        android:alpha="0.5"/>
     <ImageView
         android:id="@+id/imageView2"
         android:layout_width="match_parent"
