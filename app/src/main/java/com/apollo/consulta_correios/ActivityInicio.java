@@ -27,6 +27,9 @@ public class ActivityInicio extends AppCompatActivity {
     ImageView imgBg;
     @BindView(R.id.txtCopyrightNotice)
     TextView txtCopyrightNotice;
+    @BindView(R.id.activity_inicio_btn_sobre)
+    Button btnSobre;
+
 
     private final String SHARED_PREFS = "prefs";
     private final String PACKAGE_QUERY_KEY = "package";
@@ -48,6 +51,12 @@ public class ActivityInicio extends AppCompatActivity {
         txtCopyrightNotice.setOnClickListener(View -> {
             Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/apollodaniel"));
             startActivity(browserIntent);
+        });
+
+        btnSobre.setOnClickListener(View -> {
+            Intent intent = new Intent(ActivityInicio.this, ActivityAbout.class);
+            startActivity(intent);
+            finish();
         });
 
         SharedPreferences sh = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);

@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">Consulta correios</string>
     <string name="product_doesnt_exists_error">Product doesn\'t exists :P</string>
+    <string name="copyright_chipytux"><u>API Consulta Correios:\nCopyright © 2020 chipytux</u></string>
+    <string name="copyright_apollo"><u>Design, programação, e direção:\nCopyright © 2021 Apollo Daniel</u></string>
+    <string name="copyright_notice_apollo"><u>2021 Apollo Daniel. Some rights reserved.</u></string>
 </resources>

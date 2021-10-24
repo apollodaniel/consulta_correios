@@ -131,7 +131,7 @@
         android:layout_marginBottom="8dp"
         android:drawableLeft="@drawable/ic_copyright"
         android:drawablePadding="5dp"
-        android:text="2021 Apollo Daniel. Some rights reserved."
+        android:text="@string/copyright_notice_apollo"
         android:textColor="@color/black"
         android:textSize="16sp"
         android:textStyle="bold"
