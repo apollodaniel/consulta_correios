@@ -55,6 +55,7 @@ public class StatusAdapter extends RecyclerView.Adapter<StatusAdapter.viewHolder
         holder.txtData.setText(String.format("Data: %s",data));
         holder.txtHora.setText(String.format("Hora: %s",hora));
         holder.txtOutro.setText(String.format("Outro: %s",outro_string));
+        holder.txtStatusNumber.setText(String.format("# %s", eventos.size() - position));
     }
 
     @Override
@@ -74,6 +75,8 @@ public class StatusAdapter extends RecyclerView.Adapter<StatusAdapter.viewHolder
         TextView txtHora;
         @BindView(R.id.custom_adapter_txt_outro)
         TextView txtOutro;
+        @BindView(R.id.txtStatusNumber)
+        TextView txtStatusNumber;
 
         public viewHolder(@NonNull View itemView) {
             super(itemView);

@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.Handler;
 import android.widget.ImageView;
 
 import com.apollo.consulta_correios.models.CorreiosEncomenda;
@@ -47,48 +48,57 @@ public class ActivityLoadPackage extends AppCompatActivity {
         package_code = getIntent().getStringExtra("package_code");
         isHistory = getIntent().getBooleanExtra("isHistory", false);
         
-        configureRetrofit();
+        configureRetrofit(false);
     }
 
-    private void configureRetrofit() {
+    private void configureRetrofit(boolean isReconnecting) {
 
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(CorreiosService.BASE_URL)
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
+        int delay = 0;
+        if(isReconnecting) delay =4500;
 
-        CorreiosService service = retrofit.create(CorreiosService.class);
-        Call<CorreiosEncomenda> correiosEncomenda = service.showProduct(user, token, package_code);
-        correiosEncomenda.enqueue(new Callback<CorreiosEncomenda>() {
+        new Handler().postDelayed(new Runnable() {
             @Override
-            public void onResponse(@NonNull Call<CorreiosEncomenda> call, @NonNull Response<CorreiosEncomenda> response) {
-                 if (response.isSuccessful()) {
-                    // sucess
-                    CorreiosEncomenda encomenda = response.body();
-                    if (encomenda != null) {
-                        Gson gson = new Gson();
-                        String json_resultado = gson.toJson(encomenda);
-                        Intent intent = new Intent(ActivityLoadPackage.this, ActivityShowPackageResult.class);
-                        intent.putExtra("json_resultado", json_resultado);
-                        startActivity(intent);
-                        if (!isHistory) {
-                            finishApp();
+            public void run() {
+                Retrofit retrofit = new Retrofit.Builder()
+                        .baseUrl(CorreiosService.BASE_URL)
+                        .addConverterFactory(GsonConverterFactory.create())
+                        .build();
+
+                CorreiosService service = retrofit.create(CorreiosService.class);
+                Call<CorreiosEncomenda> correiosEncomenda = service.showProduct(user, token, package_code);
+                correiosEncomenda.enqueue(new Callback<CorreiosEncomenda>() {
+                    @Override
+                    public void onResponse(@NonNull Call<CorreiosEncomenda> call, @NonNull Response<CorreiosEncomenda> response) {
+                        if (response.isSuccessful()) {
+                            // sucess
+                            CorreiosEncomenda encomenda = response.body();
+                            if (encomenda != null) {
+                                Gson gson = new Gson();
+                                String json_resultado = gson.toJson(encomenda);
+                                Intent intent = new Intent(ActivityLoadPackage.this, ActivityShowPackageResult.class);
+                                intent.putExtra("json_resultado", json_resultado);
+                                startActivity(intent);
+                                if (!isHistory) {
+                                    finishApp();
+                                }
+                                finish();
+                            }
+                        }else if (response.code() == 429) {
+                            configureRetrofit(true);
+
+                        } else {
+                            finishAffinity();
                         }
-                        finish();
                     }
-                }else if (response.code() == 429) {
-                     android.os.SystemClock.sleep(4000);
-                     configureRetrofit();
-                } else {
-                    finishAffinity();
-                }
-            }
 
-            @Override
-            public void onFailure(Call<CorreiosEncomenda> call, Throwable t) {
-                finishAffinity();
+                    @Override
+                    public void onFailure(Call<CorreiosEncomenda> call, Throwable t) {
+                        finishAffinity();
+                    }
+                });
             }
-        });
+        },delay);
+
     }
     private void retry(){
 
