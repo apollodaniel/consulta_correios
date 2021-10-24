@@ -37,19 +37,6 @@ public class ActivityInicio extends AppCompatActivity {
 
         ButterKnife.bind(ActivityInicio.this);
 
-        /*
-        Notification builder = new NotificationCompat.Builder(this, NotificationCompat.EXTRA_CHANNEL_ID)
-                .setSmallIcon(R.drawable.ic_launcher_background)
-                .setContentTitle("Titulo")
-                .setContentText("Exemplo hello world")
-                .setPriority(NotificationCompat.PRIORITY_DEFAULT) .build();
-
-
-        NotificationManager mNotificationManager =
-                (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-        mNotificationManager.notify(0, builder);
-        */
-
         SharedPreferences sh = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
         String package_codes = sh.getString(PACKAGE_QUERY_KEY, "");
         if(package_codes.isEmpty()){
