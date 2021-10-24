@@ -67,6 +67,20 @@
         app:layout_constraintStart_toStartOf="@+id/activity_inicio_edt_codigo_produto"
         app:layout_constraintTop_toBottomOf="@+id/activity_inicio_edt_codigo_produto" />
 
+    <Button
+        android:id="@+id/activity_inicio_btn_sobre"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/button_round"
+        android:drawableRight="@drawable/ic_account"
+        android:text="Sobre"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/activity_inicio_edt_codigo_produto"
+        app:layout_constraintStart_toStartOf="@+id/activity_inicio_edt_codigo_produto"
+        app:layout_constraintTop_toBottomOf="@+id/activity_inicio_btn_historico" />
+
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
