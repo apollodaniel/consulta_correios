@@ -12,25 +12,34 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Consulta Correios"
+        android:textColor="@color/black"
         android:textSize="25sp"/>
     <EditText
         android:id="@+id/activity_inicio_edt_codigo_produto"
         android:layout_marginTop="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Código do produto ex: AA12345789BR"/>
+        android:background="@drawable/input_round"
+        android:drawableLeft="@drawable/ic_mail"
+        android:drawablePadding="10dp"
+        android:padding="16dp"
+        android:hint="AA12345789BR"/>
 
     <Button
         android:id="@+id/activity_inicio_btn_buscar"
         android:layout_marginTop="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:background="@drawable/button_round"
         android:text="Buscar"/>
     <Button
         android:id="@+id/activity_inicio_btn_historico"
         android:layout_marginTop="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:background="@drawable/button_round"
         android:text="Histórico de buscas"/>
 
 
