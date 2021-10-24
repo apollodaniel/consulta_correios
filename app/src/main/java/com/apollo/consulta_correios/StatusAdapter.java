@@ -32,9 +32,6 @@ public class StatusAdapter extends RecyclerView.Adapter<StatusAdapter.viewHolder
 
     @Override
     public void onBindViewHolder(@NonNull viewHolder holder, int position) {
-        if(position == 0){
-            holder.line_separator.setVisibility(View.INVISIBLE);
-        }
         String status = eventos.get(position).status;
         String local = eventos.get(position).local;
         String data = eventos.get(position).data;
@@ -61,8 +58,6 @@ public class StatusAdapter extends RecyclerView.Adapter<StatusAdapter.viewHolder
         TextView txtData;
         @BindView(R.id.custom_adapter_txt_hora)
         TextView txtHora;
-        @BindView(R.id.line_separator)
-        View line_separator;
 
         public viewHolder(@NonNull View itemView) {
             super(itemView);
