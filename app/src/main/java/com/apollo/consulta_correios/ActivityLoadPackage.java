@@ -58,10 +58,7 @@ public class ActivityLoadPackage extends AppCompatActivity {
         correiosEncomenda.enqueue(new Callback<CorreiosEncomenda>() {
             @Override
             public void onResponse(@NonNull Call<CorreiosEncomenda> call, @NonNull Response<CorreiosEncomenda> response) {
-                if (response.code() == 401) {
-                    // unautorized error = not found product code
-                    finishAffinity();
-                } else if (response.isSuccessful()) {
+                 if (response.isSuccessful()) {
                     // sucess
                     CorreiosEncomenda encomenda = response.body();
                     if (encomenda != null) {
@@ -70,11 +67,16 @@ public class ActivityLoadPackage extends AppCompatActivity {
                         Intent intent = new Intent(ActivityLoadPackage.this, ActivityShowPackageResult.class);
                         intent.putExtra("json_resultado", json_resultado);
                         startActivity(intent);
-                        if(!isHistory) {finishApp();}
+                        if (!isHistory) {
+                            finishApp();
+                        }
                         finish();
-                    } else {
-                        finishAffinity();
                     }
+                }else if (response.code() == 429) {
+                     android.os.SystemClock.sleep(4000);
+                     configureRetrofit();
+                } else {
+                    finishAffinity();
                 }
             }
 
@@ -83,6 +85,9 @@ public class ActivityLoadPackage extends AppCompatActivity {
                 finishAffinity();
             }
         });
+    }
+    private void retry(){
+
     }
     private void finishApp() {
         SharedPreferences sh = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
@@ -104,7 +109,7 @@ public class ActivityLoadPackage extends AppCompatActivity {
 
             package_codes = new Gson().toJson(new PackageTemplate(package_code, formattedDate)).toString();
 
-        }else if(verifyPackageCode(packages)){
+        }else if(!verifyPackageCode(packages)){
             Date c = Calendar.getInstance().getTime();
             SimpleDateFormat df = new SimpleDateFormat("dd/MMM/yyyy", Locale.getDefault());
             String formattedDate = df.format(c);
