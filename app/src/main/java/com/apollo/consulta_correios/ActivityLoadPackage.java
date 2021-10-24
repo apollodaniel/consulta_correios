@@ -104,7 +104,7 @@ public class ActivityLoadPackage extends AppCompatActivity {
 
             package_codes = new Gson().toJson(new PackageTemplate(package_code, formattedDate)).toString();
 
-        }else if(!packages.contains(package_codes)){
+        }else if(verifyPackageCode(packages)){
             Date c = Calendar.getInstance().getTime();
             SimpleDateFormat df = new SimpleDateFormat("dd/MMM/yyyy", Locale.getDefault());
             String formattedDate = df.format(c);
@@ -119,5 +119,14 @@ public class ActivityLoadPackage extends AppCompatActivity {
         }
 
         sh.edit().putString(PACKAGE_QUERY_KEY, package_codes).apply();
+    }
+
+    private boolean verifyPackageCode(ArrayList<PackageTemplate> packages) {
+        for (PackageTemplate package_template: packages){
+            if(package_template.code.equals(package_code)){
+                return true;
+            }
+        }
+        return false;
     }
 }
