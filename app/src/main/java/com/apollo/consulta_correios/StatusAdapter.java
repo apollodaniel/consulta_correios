@@ -37,10 +37,24 @@ public class StatusAdapter extends RecyclerView.Adapter<StatusAdapter.viewHolder
         String data = eventos.get(position).data;
         String hora = eventos.get(position).hora;
 
+        String outro_string;
+
+        StringBuilder outro_text = new StringBuilder();
+
+        for (String outro : eventos.get(position).subStatus){
+            outro_text.append(outro.replace("Destino:", "Para").replace("Origem:", "De").replace("Local:", "De"));
+        }
+
+        outro_string = outro_text.toString().replace(":","");
+
+        if(outro_string.isEmpty()) outro_string = "Nenhuma informação";
+
+
         holder.txtStatus.setText(String.format("Status: %s",status));
         holder.txtLocal.setText(String.format("Local: %s",local));
         holder.txtData.setText(String.format("Data: %s",data));
         holder.txtHora.setText(String.format("Hora: %s",hora));
+        holder.txtOutro.setText(String.format("Outro: %s",outro_string));
     }
 
     @Override
@@ -58,6 +72,8 @@ public class StatusAdapter extends RecyclerView.Adapter<StatusAdapter.viewHolder
         TextView txtData;
         @BindView(R.id.custom_adapter_txt_hora)
         TextView txtHora;
+        @BindView(R.id.custom_adapter_txt_outro)
+        TextView txtOutro;
 
         public viewHolder(@NonNull View itemView) {
             super(itemView);

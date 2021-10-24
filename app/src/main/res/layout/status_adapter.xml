@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -14,54 +15,79 @@
         android:background="@drawable/status_item_round"
         android:padding="16dp">
 
-        <LinearLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical">
+
             <TextView
                 android:id="@+id/custom_adapter_txt_status"
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
                 android:layout_weight="1"
-                android:textColor="@color/black"
                 android:drawableLeft="@drawable/ic_history"
                 android:drawablePadding="5dp"
                 android:text="Status: Lorem ipsum"
+                android:textColor="@color/black"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
                 tools:ignore="HardcodedText" />
 
             <TextView
                 android:id="@+id/custom_adapter_txt_local"
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
+                android:layout_marginTop="8dp"
                 android:layout_weight="1"
-                android:layout_marginTop="2dp"
-                android:textColor="@color/black"
-                android:text="Local: SP"
                 android:drawableLeft="@drawable/ic_location_city"
                 android:drawablePadding="5dp"
+                android:text="Local: SP"
+                android:textColor="@color/black"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/custom_adapter_txt_status"
                 tools:ignore="HardcodedText" />
+
             <TextView
                 android:id="@+id/custom_adapter_txt_data"
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
+                android:layout_marginTop="8dp"
                 android:layout_weight="1"
-                android:layout_marginTop="2dp"
                 android:drawableLeft="@drawable/ic_calendary"
                 android:drawablePadding="5dp"
-                android:textColor="@color/black"
                 android:text="Data: 10/10/2000"
+                android:textColor="@color/black"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/custom_adapter_txt_local"
                 tools:ignore="HardcodedText" />
+
             <TextView
                 android:id="@+id/custom_adapter_txt_hora"
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
+                android:layout_marginTop="8dp"
                 android:layout_weight="1"
-                android:layout_marginTop="2dp"
                 android:drawableLeft="@drawable/ic_watch"
                 android:drawablePadding="5dp"
-                android:textColor="@color/black"
                 android:text="Hora: 22:22:2222"
+                android:textColor="@color/black"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/custom_adapter_txt_data"
                 tools:ignore="HardcodedText" />
-        </LinearLayout>
+
+            <TextView
+                android:id="@+id/custom_adapter_txt_outro"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_marginTop="8dp"
+                android:layout_weight="1"
+                android:drawableLeft="@drawable/ic_truck"
+                android:drawablePadding="5dp"
+                android:text="Outro: De SP para RJ"
+                android:textColor="@color/black"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/custom_adapter_txt_hora"
+                tools:ignore="HardcodedText" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </LinearLayout>
 </LinearLayout>

@@ -1,14 +1,9 @@
 package com.apollo.consulta_correios;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.NotificationCompat;
 
-import android.app.Notification;
-import android.app.NotificationManager;
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.res.Configuration;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.widget.Button;
@@ -61,7 +56,7 @@ public class ActivityInicio extends AppCompatActivity {
             finish();
         });
         btnHistorico.setOnClickListener(View -> {
-            Intent intent = new Intent(ActivityInicio.this, activity_history.class);
+            Intent intent = new Intent(ActivityInicio.this, ActivityHistory.class);
             startActivity(intent);
             finish();
         });

@@ -20,7 +20,7 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class activity_history extends AppCompatActivity {
+public class ActivityHistory extends AppCompatActivity {
 
     private final String SHARED_PREFS = "prefs";
     private final String PACKAGE_QUERY_KEY = "package";
@@ -37,13 +37,13 @@ public class activity_history extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_history);
 
-        ButterKnife.bind(activity_history.this);
+        ButterKnife.bind(ActivityHistory.this);
 
         SharedPreferences sh = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
         String package_codes = sh.getString(PACKAGE_QUERY_KEY, "");
 
         btnVoltar.setOnClickListener(View -> {
-            Intent intent = new Intent(activity_history.this, ActivityInicio.class);
+            Intent intent = new Intent(ActivityHistory.this, ActivityInicio.class);
             startActivity(intent);
             finish();
         });
@@ -68,7 +68,7 @@ public class activity_history extends AppCompatActivity {
         listener = new HistoryAdapter.OnHistoryListener() {
             @Override
             public void onNoteClick(View v, String code) {
-                Intent intent = new Intent(activity_history.this, ActivityLoadPackage.class);
+                Intent intent = new Intent(ActivityHistory.this, ActivityLoadPackage.class);
                 intent.putExtra("package_code", code);
                 intent.putExtra("isHistory", true);
                 startActivity(intent);

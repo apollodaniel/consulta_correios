@@ -13,9 +13,19 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:textSize="25sp"
+        android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="@+id/activity_packageresult_btn_voltar"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Status:"
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/rv_mostra_status"
+        app:layout_constraintStart_toStartOf="@+id/rv_mostra_status" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_mostra_status"
