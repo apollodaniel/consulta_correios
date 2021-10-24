@@ -8,6 +8,7 @@ import android.app.NotificationManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.Configuration;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.widget.Button;
@@ -66,9 +67,6 @@ public class ActivityInicio extends AppCompatActivity {
         });
 
     }
-    private void notificationClick()
-    {
-
-    }
+    
 
 }
