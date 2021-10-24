@@ -20,8 +20,11 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.viewHold
 
     List<PackageTemplate> package_codes;
 
-    public HistoryAdapter(List<PackageTemplate> package_codes) {
+    HistoryAdapter.OnHistoryListener listener;
+
+    public HistoryAdapter(List<PackageTemplate> package_codes,HistoryAdapter.OnHistoryListener listener) {
         this.package_codes = package_codes;
+        this.listener = listener;
     }
 
     @NonNull
@@ -36,8 +39,10 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.viewHold
         if(position == 0){
             holder.line_separator.setVisibility(View.INVISIBLE);
         }
-        holder.txtCode.setText(String.format("Código: %s", package_codes.get(position).code));
-        holder.txtData.setText(String.format("Data: %s", package_codes.get(position).data));
+        if(package_codes.get(position) != null){
+            holder.txtCode.setText(String.format("Código: %s", package_codes.get(position).code));
+            holder.txtData.setText(String.format("Data: %s", package_codes.get(position).data));
+        }
     }
 
     @Override
@@ -45,7 +50,7 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.viewHold
         return package_codes.size();
     }
 
-    public class viewHolder extends RecyclerView.ViewHolder{
+    public class viewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
         @BindView(R.id.history_adapter_txt_code)
         TextView txtCode;
@@ -58,9 +63,15 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.viewHold
         public viewHolder(@NonNull View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
+            itemView.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View v) {
+            listener.onNoteClick(v,package_codes.get(getAbsoluteAdapterPosition()).code);
         }
     }
     public interface OnHistoryListener{
-        void onNoteClick(int position);
+        void onNoteClick(View v, String code);
     }
 }

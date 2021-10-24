@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 
 import com.apollo.consulta_correios.models.PackageTemplate;
@@ -28,6 +29,8 @@ public class activity_history extends AppCompatActivity {
     RecyclerView rvShowHistory;
     @BindView(R.id.activity_history_btn_voltar)
     Button btnVoltar;
+
+    HistoryAdapter.OnHistoryListener listener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,11 +56,26 @@ public class activity_history extends AppCompatActivity {
         configureRecyclerView(packages_class);
     }
     private void configureRecyclerView(List<PackageTemplate> j){
-        HistoryAdapter adapter = new HistoryAdapter(j);
+        setOnClickListener(j);
+        HistoryAdapter adapter = new HistoryAdapter(j, listener);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
 
         rvShowHistory.setLayoutManager(layoutManager);
         rvShowHistory.setAdapter(adapter);
+    }
+
+    private void setOnClickListener(List<PackageTemplate> j) {
+        listener = new HistoryAdapter.OnHistoryListener() {
+            @Override
+            public void onNoteClick(View v, String code) {
+                Intent intent = new Intent(activity_history.this, ActivityLoadPackage.class);
+                intent.putExtra("package_code", code);
+                intent.putExtra("isHistory", true);
+                startActivity(intent);
+                finish();
+            }
+        };
+
     }
 
 }

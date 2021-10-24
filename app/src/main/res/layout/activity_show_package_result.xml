@@ -14,10 +14,24 @@
         android:layout_height="wrap_content"
         android:textSize="25sp"
         />
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_mostra_status"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        />
+        android:orientation="vertical">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_mostra_status"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="9" />
+
+        <Button
+            android:id="@+id/activity_packageresult_btn_voltar"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:text="Voltar"/>
+    </LinearLayout>
+
 
 </LinearLayout>

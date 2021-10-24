@@ -33,12 +33,16 @@ public class ActivityLoadPackage extends AppCompatActivity {
     private final String SHARED_PREFS = "prefs";
     private final String PACKAGE_QUERY_KEY = "package";
 
+    private boolean isHistory;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_load_package);
 
         package_code = getIntent().getStringExtra("package_code");
+        isHistory = getIntent().getBooleanExtra("isHistory", false);
+
         configureRetrofit();
     }
 
@@ -66,7 +70,7 @@ public class ActivityLoadPackage extends AppCompatActivity {
                         Intent intent = new Intent(ActivityLoadPackage.this, ActivityShowPackageResult.class);
                         intent.putExtra("json_resultado", json_resultado);
                         startActivity(intent);
-                        finishApp();
+                        if(!isHistory) {finishApp();}
                         finish();
                     } else {
                         finishAffinity();
