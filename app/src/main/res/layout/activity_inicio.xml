@@ -6,11 +6,17 @@
     android:layout_height="match_parent"
     tools:context=".ActivityInicio">
 
+    <ImageView
+        android:id="@+id/activity_inicio_imgbg"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"/>
     <View
         android:id="@+id/view"
         android:layout_width="match_parent"
         android:layout_height="90dp"
         android:background="@color/primary"
+        android:alpha="0.9"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -21,6 +27,7 @@
         android:layout_height="90dp"
         android:scaleType="centerCrop"
         android:scaleY="-1"
+        android:alpha="0.9"
         android:src="@drawable/ic_wave"
         app:layout_constraintTop_toBottomOf="@+id/view" />
 
@@ -58,6 +65,7 @@
         app:layout_constraintTop_toBottomOf="@+id/activity_inicio_edt_codigo_produto" />
 
     <TextView
+        android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="64dp"
@@ -86,5 +94,13 @@
         app:layout_constraintStart_toStartOf="@+id/activity_inicio_edt_codigo_produto"
         app:layout_constraintTop_toBottomOf="@+id/activity_inicio_btn_buscar" />
 
-
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        android:alpha="0.9"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_wave_bottom"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
