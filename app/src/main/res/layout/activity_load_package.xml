@@ -40,6 +40,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="32dp"
         android:text="Procurando encomenda"
+        android:textStyle="bold"
         android:textSize="25dp"
         android:textColor="@color/black"
         app:layout_constraintBottom_toTopOf="@+id/imageView3"

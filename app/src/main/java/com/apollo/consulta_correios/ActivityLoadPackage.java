@@ -6,9 +6,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.widget.ImageView;
 
 import com.apollo.consulta_correios.models.CorreiosEncomenda;
 import com.apollo.consulta_correios.models.PackageTemplate;
+import com.bumptech.glide.Glide;
 import com.google.gson.Gson;
 
 import java.text.SimpleDateFormat;
@@ -18,6 +20,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 
+import butterknife.BindView;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -35,6 +38,9 @@ public class ActivityLoadPackage extends AppCompatActivity {
 
     private boolean isHistory;
 
+    @BindView(R.id.imgLoading)
+    ImageView imgLoading;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,7 +48,7 @@ public class ActivityLoadPackage extends AppCompatActivity {
 
         package_code = getIntent().getStringExtra("package_code");
         isHistory = getIntent().getBooleanExtra("isHistory", false);
-
+        
         configureRetrofit();
     }
 
