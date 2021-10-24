@@ -4,7 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.apollo.consulta_correios.models.CorreiosEncomenda;
@@ -22,6 +24,8 @@ public class ActivityShowPackageResult extends AppCompatActivity {
     TextView txt_codigo_encomenda;
     @BindView(R.id.rv_mostra_status)
     RecyclerView rv_mostra_status;
+    @BindView(R.id.activity_packageresult_btn_voltar)
+    Button btnVoltar;
 
     List<Evento> eventos_list;
 
@@ -38,6 +42,13 @@ public class ActivityShowPackageResult extends AppCompatActivity {
 
         txt_codigo_encomenda.setText(encomenda.codigo);
         eventos_list = encomenda.eventos;
+
+        btnVoltar.setOnClickListener(View -> {
+            Intent intent = new Intent(ActivityShowPackageResult.this, ActivityInicio.class);
+            startActivity(intent);
+            finish();
+        });
+
         configureRecyclerView();
     }
 
