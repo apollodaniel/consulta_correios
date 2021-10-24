@@ -1,7 +1,11 @@
 package com.apollo.consulta_correios;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
 
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -24,6 +28,7 @@ public class ActivityInicio extends AppCompatActivity {
     private final String PACKAGE_QUERY_KEY = "package";
 
     private String codigo_produto;
+    boolean notificacao = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +36,19 @@ public class ActivityInicio extends AppCompatActivity {
         setContentView(R.layout.activity_inicio);
 
         ButterKnife.bind(ActivityInicio.this);
+
+        /*
+        Notification builder = new NotificationCompat.Builder(this, NotificationCompat.EXTRA_CHANNEL_ID)
+                .setSmallIcon(R.drawable.ic_launcher_background)
+                .setContentTitle("Titulo")
+                .setContentText("Exemplo hello world")
+                .setPriority(NotificationCompat.PRIORITY_DEFAULT) .build();
+
+
+        NotificationManager mNotificationManager =
+                (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+        mNotificationManager.notify(0, builder);
+        */
 
         SharedPreferences sh = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
         String package_codes = sh.getString(PACKAGE_QUERY_KEY, "");
@@ -53,6 +71,9 @@ public class ActivityInicio extends AppCompatActivity {
         });
 
     }
+    private void notificationClick()
+    {
 
+    }
 
 }
