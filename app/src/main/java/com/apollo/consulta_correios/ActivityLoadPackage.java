@@ -38,8 +38,6 @@ public class ActivityLoadPackage extends AppCompatActivity {
 
     private boolean isHistory;
 
-    @BindView(R.id.imgLoading)
-    ImageView imgLoading;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

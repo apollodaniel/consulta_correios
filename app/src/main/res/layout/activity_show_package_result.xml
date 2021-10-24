@@ -4,59 +4,68 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
     tools:context=".ActivityShowPackageResult">
 
-    <TextView
-        android:id="@+id/txt_codigo_encomenda"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:textSize="25sp"
-        android:textColor="@color/black"
-        app:layout_constraintEnd_toEndOf="@+id/activity_packageresult_btn_voltar"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Status:"
-        android:textColor="@color/black"
-        android:textSize="20dp"
-        app:layout_constraintBottom_toTopOf="@+id/rv_mostra_status"
-        app:layout_constraintStart_toStartOf="@+id/rv_mostra_status" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_mostra_status"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="32dp"
-        android:layout_weight="9"
-        android:overScrollMode="never"
-        app:layout_constraintBottom_toTopOf="@+id/activity_packageresult_btn_voltar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_codigo_encomenda" />
+        android:layout_height="match_parent">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                android:id="@+id/txt_codigo_encomenda"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:textSize="25sp"
+                android:textColor="@color/black"
+                app:layout_constraintEnd_toEndOf="@+id/activity_packageresult_btn_voltar"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/activity_packageresult_btn_voltar"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="32dp"
-        android:layout_weight="1"
-        android:textColor="@color/black"
-        android:drawableRight="@drawable/ic_back_arrow"
-        android:text="Voltar"
-        android:background="@drawable/button_round"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Status:"
+                android:textColor="@color/black"
+                android:textSize="20dp"
+                app:layout_constraintBottom_toTopOf="@+id/rv_mostra_status"
+                app:layout_constraintStart_toStartOf="@+id/rv_mostra_status" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_mostra_status"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="32dp"
+                android:layout_weight="9"
+                android:overScrollMode="never"
+                app:layout_constraintBottom_toTopOf="@+id/activity_packageresult_btn_voltar"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txt_codigo_encomenda" />
+
+            <Button
+                android:id="@+id/activity_packageresult_btn_voltar"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="32dp"
+                android:layout_weight="1"
+                android:textColor="@color/black"
+                android:drawableRight="@drawable/ic_back_arrow"
+                android:text="Voltar"
+                android:background="@drawable/button_round"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
